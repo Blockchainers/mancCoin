@@ -1,0 +1,4 @@
+class Manccoin {
+    Manccoin();
+    ~Manccoin();
+};

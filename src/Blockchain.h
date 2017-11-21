@@ -1,0 +1,4 @@
+class Blockchain {
+    Blockchain();
+    ~Blockchain();
+};
