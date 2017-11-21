@@ -2,4 +2,3 @@ class Transaction {
     Transaction();
     ~Transaction();
 };
-
