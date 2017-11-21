@@ -1,9 +1,12 @@
+#include <vector>
+#include <string>
+
 class Block {
     public:
         int index;
         int proof;
-        Transaction transaction;
-        String previousHash;
+        std::vector<Transaction> transaction;
+        std::string previousHash;
         Block();
         ~Block();
 };
