@@ -6,7 +6,7 @@ class Transaction {
     double timestamp;
     std::vector<Transaction> transactions;
     double proof;
-    string previousHash;
+    std::string previousHash;
 
     Transaction();
     ~Transaction();
