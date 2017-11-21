@@ -1,0 +1,4 @@
+class Block {
+    Block();
+    ~Block();
+};
