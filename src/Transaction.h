@@ -3,12 +3,10 @@
 
 class Transaction {
     public:
-        double index;
-        double timestamp;
-        std::vector<Transaction> transactions;
-        double proof;
-        std::string previousHash;
-
+        std::string sender;
+        std::string recipient;
+        double amount;
+        
     Transaction();
     ~Transaction();
 };
