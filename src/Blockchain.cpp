@@ -21,4 +21,3 @@ int Blockchain::newTransaction(Transaction transaction) {
     
     return lastBlock.index + 1;
 };
- 
