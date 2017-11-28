@@ -1,3 +1,6 @@
+#ifndef BLOCKCHAIN_H
+#define BLOCKCHAIN_H
+
 #include <vector>
 #include "Block.h"
 
@@ -10,3 +13,5 @@ class Blockchain {
 
         void mine();   
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef TRANSACTION_H
+#define TRANSACTION_H
+
 #include <vector>
 #include <string>
 
@@ -7,3 +10,5 @@ class Transaction {
         std::string recipient;
         double amount;
 };
+
+#endif
