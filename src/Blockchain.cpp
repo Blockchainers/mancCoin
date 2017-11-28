@@ -8,7 +8,7 @@ Blockchain::Blockchain() : chain(), currentTransactions() {
     genisis.previousHash = "";
 
     chain.push_back(genisis);
-}; 
+}
 
 int Blockchain::newTransaction(Transaction transaction) {
     currentTransactions.push_back(transaction);
@@ -20,4 +20,4 @@ int Blockchain::newTransaction(Transaction transaction) {
     Block lastBlock = chain.back();
     
     return lastBlock.index + 1;
-};
+}
