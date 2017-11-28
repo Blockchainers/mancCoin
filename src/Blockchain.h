@@ -1,4 +1,12 @@
+#include <vector>
+#include "Block.h"
+
 class Blockchain {
-    Blockchain();
-    ~Blockchain();
+    public:
+        std::vector<Block> chain;
+        
+        Blockchain();
+        ~Blockchain(); 
+
+        void mine();   
 };

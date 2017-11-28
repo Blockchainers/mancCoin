@@ -5,6 +5,8 @@
 // https://github.com/okdshin/PicoSHA2
 #include "vendor/picosha2.h"
 
+#include "Blockchain.h"
+
 int main(int argc, char **argv) {
     std::string welcomeMessage = "Welcome to mancCoin";
     std::vector<unsigned char> hash(32);
