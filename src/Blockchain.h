@@ -10,6 +10,10 @@ public:
         
     Blockchain();
     ~Blockchain();
+
+    int newTransaction(Transaction transaction);
+private:
+    std::vector<Transaction> currentTransactions;
 };
 
 #endif
