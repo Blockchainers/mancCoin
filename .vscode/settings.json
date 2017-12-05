@@ -24,6 +24,10 @@
         "system_error": "cpp",
         "type_traits": "cpp",
         "typeinfo": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "__bit_reference": "cpp",
+        "__split_buffer": "cpp",
+        "iterator": "cpp",
+        "vector": "cpp"
     }
 }
