@@ -10,9 +10,10 @@ class Block {
 public:
     int index;
     int proof;
-        
-    std::vector<Transaction> transaction;
+
+    std::vector<Transaction> transactions;
     std::string previousHash;
+    std::string hash;
 };
 
 #endif

@@ -6,6 +6,7 @@ Blockchain::Blockchain() : chain(), currentTransactions() {
     genisis.index = 0;
     genisis.proof = 0;
     genisis.previousHash = "";
+    genisis.hash = "genesis";
 
     chain.push_back(genisis);
 }

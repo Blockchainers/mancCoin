@@ -1,2 +1,2 @@
 all:
-	g++ -Wall src/*.cpp -o manccoin
+	g++ -std=c++11 -Wall src/*.cpp -o manccoin
