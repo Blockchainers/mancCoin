@@ -8,12 +8,11 @@
 
 class Block {
 public:
-    int index;
-    int proof;
+    unsigned int index;
+    unsigned int proof;
 
     std::vector<Transaction> transactions;
     std::string previousHash;
-    std::string hash;
 };
 
 #endif

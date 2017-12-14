@@ -28,6 +28,13 @@
         "__bit_reference": "cpp",
         "__split_buffer": "cpp",
         "iterator": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "__locale": "cpp",
+        "bitset": "cpp",
+        "functional": "cpp",
+        "memory": "cpp",
+        "__config": "cpp",
+        "__nullptr": "cpp",
+        "algorithm": "cpp"
     }
 }

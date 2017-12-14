@@ -3,12 +3,16 @@
 
 #include <string>
 #include <vector>
+
 #include "Transaction.h"
 
 class ProofOfWork {
-    public:
-        bool verify(std::string, std::vector<Transaction>, int);
-        int proof(std::string, std::vector<Transaction>);
+public:
+    bool verify(unsigned int previousProof, unsigned int proof);
+    int proof(unsigned int previousProof);
+
+private:
+    bool validateConstraints(std::string hash);
 };
 
 #endif
