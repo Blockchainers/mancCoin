@@ -7,6 +7,7 @@
 #include "Block.h"
 
 int Manccoin::start() {
+    static const std::string MyAddress = "TheAddressOfThisNode";
     blockchain = new Blockchain();
 
     // Mine lots of blocks
@@ -18,6 +19,12 @@ int Manccoin::start() {
         int proofResult = proof->proof(lastBlock.proof);
 
         // Add coinbase
+        Transaction coinbase = Transaction();
+        coinbase.sender = "0";
+        coinbase.recipient = MyAddress;
+        coinbase.amount = 1; // Send the miner 1manc
+
+        blockchain->pushTransaction(coinbase);
 
         // Create our new block
         std::string previousBlockHash = blockchain->blockHash(lastBlock);

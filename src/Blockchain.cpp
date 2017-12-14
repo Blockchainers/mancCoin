@@ -12,7 +12,7 @@ Blockchain::Blockchain() : chain(), currentTransactions() {
     chain.push_back(genesis);
 }
 
-int Blockchain::newTransaction(Transaction transaction) {
+int Blockchain::pushTransaction(Transaction transaction) {
     currentTransactions.push_back(transaction);
     
     if (chain.empty()) {
@@ -29,6 +29,8 @@ Block Blockchain::newBlock(unsigned int proof, std::string previousBlockHash) {
     block.index = chain.back().index + 1;
     block.previousHash = previousBlockHash;
     block.proof = proof;
+    block.transactions = currentTransactions;
+    currentTransactions.clear();
 
     chain.push_back(block);
     return block;

@@ -13,8 +13,10 @@ public:
     Blockchain();
     ~Blockchain();
 
-    // TODO: Make this a transaction generator method
-    int newTransaction(Transaction transaction);
+    /// Returns index of block this transaction will be mined into
+    int pushTransaction(Transaction transaction);
+
+    /// Adds a new block to the chain and returns it
     Block newBlock(unsigned int proof, std::string previousBlockHash);
 
     // Returns the SHA256(SHA256()) of a block 
