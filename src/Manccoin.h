@@ -1,13 +1,21 @@
 #ifndef MANCCOIN_H
 #define MANCCOIN_H
 
-class Blockchain;
+#include "Blockchain.h"
+
 class Manccoin {
 public:
+    Blockchain blockchain;
+
     int start();
 
 private:
-    Blockchain *blockchain;
+    void bindRPC();
 };
+
+namespace rpcinterface {
+    /// Push transaction to the blockchain currentTransactions
+    static const auto pushTransaction = "pushTransaction";
+}
 
 #endif

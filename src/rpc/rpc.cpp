@@ -7,33 +7,35 @@
 
 namespace network {
 
-  static const std::string ManccoinRPCVersion = "1.0.0";
+    static const std::string ManccoinRPCVersion = "1.0.0";
 
-  static rpc::server srv(8080);
+    static std::vector<std::string> functions = std::vector<std::string>();
 
-  std::string version() {
-    return ManccoinRPCVersion;
-  }
+    const int serverPort = 8080;
+    rpc::server srv(serverPort);
 
-  void bindRPCFunctions() {
-    // Bind RPC functions to RPC server
-    srv.bind("version", version);
-  }
+    std::string version() {
+        return ManccoinRPCVersion;
+    }
 
-  template <typename F> void bind(std::string const &name, F func) {
-    srv.bind(name, func);
-  }
+    void bindRPCFunctions() {
+        // Bind RPC functions to RPC server
+        network::srv.bind(rpcinterface::version, version);
+        network::srv.bind(rpcinterface::functions, []() {
+            return network::functions;
+        });
+    }
 
-  void start() {
-    std::cout << "Starting RPC server" << std::endl;
+    void start() {
+        std::cout << "Starting RPC server on port " << serverPort << std::endl;
 
-    bindRPCFunctions();
-    srv.async_run();
+        bindRPCFunctions();
+        network::srv.async_run();
 
-    // Test connection
-    rpc::client client("localhost", 8080);
-    std::string version = client.call("version").as<std::string>();
-    std::cout << "Manccoin RPC version: " << version << std::endl;
-  }
+        // Test connection
+        rpc::client client("localhost", serverPort);
+        std::string version = client.call(rpcinterface::version).as<std::string>();
+        std::cout << "Manccoin RPC version: " << version << std::endl;
+    }
 
 }

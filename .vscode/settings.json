@@ -35,6 +35,18 @@
         "memory": "cpp",
         "__config": "cpp",
         "__nullptr": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "__functional_base": "cpp",
+        "__functional_base_03": "cpp",
+        "__hash_table": "cpp",
+        "__tree": "cpp",
+        "__tuple": "cpp",
+        "array": "cpp",
+        "chrono": "cpp",
+        "forward_list": "cpp",
+        "ratio": "cpp",
+        "tuple": "cpp"
     }
 }

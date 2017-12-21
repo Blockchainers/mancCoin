@@ -2,11 +2,20 @@
 #define RPC_H
 
 #include <string>
-namespace network {
-  void start();
 
-  template <typename F> 
-  void bind(std::string const &name, F func);
+#include "rpc/server.h"
+
+namespace network {
+    extern const int serverPort;
+    extern rpc::server srv;
+
+    void start();
+
+    // RPC function names
+    namespace rpcinterface {
+        static const auto version = "version";
+        static const auto functions = "functions";
+    }
 }
 
 #endif

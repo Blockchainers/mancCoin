@@ -2,6 +2,8 @@
 
 #include "vendor/picosha2.h"
 
+#include "rpc/rpc.h"
+
 Blockchain::Blockchain() : chain(), currentTransactions() { 
     Block genesis = Block();
 
