@@ -6,6 +6,10 @@
 #include "Block.h"
 #include "rpc/rpc.h"
 
+#include "rpc/client.h"
+
+rpc::client client("localhost", network::serverPort);
+
 int Manccoin::start() {
     static const std::string MyAddress = "TheAddressOfThisNode";
     blockchain = Blockchain();
@@ -20,7 +24,8 @@ int Manccoin::start() {
 
         // Do mining
         int proofResult = proof->proof(lastBlock.proof);
-
+        delete proof;
+        
         // Add coinbase
         Transaction coinbase = Transaction();
         coinbase.sender = "0";
@@ -39,6 +44,11 @@ int Manccoin::start() {
                   << " with proof: " << proofResult
                   << " and hash: " << blockchain.blockHash(newBlock)
                   << std::endl;
+
+        // Test RPC
+        Blockchain b = client.call(rpcinterface::chain).as<Blockchain>();
+
+        std::cout << "Test RPC: " << b.chain.size() << std::endl;
     }
 
     return 0;
@@ -48,5 +58,21 @@ void Manccoin::bindRPC() {
     // Push a transaction into the currentTransactions of the blockchain
     network::srv.bind(rpcinterface::pushTransaction, [=](Transaction t) {
         blockchain.pushTransaction(t);
+    });
+
+    // Return highest block index
+    network::srv.bind(rpcinterface::highestBlock, [=]() {
+        Block b = blockchain.chain.back();
+        return b.index;
+    });
+
+    // Return block object at index
+    network::srv.bind(rpcinterface::blockAtIndex, [=](int index) -> Block {
+        return blockchain.chain.at(index);
+    });
+
+    // Return entire blockchain
+    network::srv.bind(rpcinterface::chain, [=]() -> Blockchain {
+        return blockchain;
     });
 }

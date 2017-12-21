@@ -9,7 +9,8 @@
 class Blockchain {
 public:
     std::vector<Block> chain;
-        
+    std::vector<Transaction> currentTransactions;
+
     Blockchain();
 
     /// Returns index of block this transaction will be mined into
@@ -21,8 +22,7 @@ public:
     /// Returns the SHA256(SHA256()) of a block 
     std::string blockHash(Block block);
 
-private:
-    std::vector<Transaction> currentTransactions;
+    MSGPACK_DEFINE_ARRAY(chain, currentTransactions);
 };
 
 #endif

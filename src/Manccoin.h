@@ -14,8 +14,10 @@ private:
 };
 
 namespace rpcinterface {
-    /// Push transaction to the blockchain currentTransactions
-    static const auto pushTransaction = "pushTransaction";
+    static const auto pushTransaction = "pushTransaction";   // Push transaction to the blockchain currentTransactions
+    static const auto highestBlock = "highestBlock";
+    static const auto blockAtIndex = "blockAtIndex";
+    static const auto chain = "chain";
 }
 
 #endif

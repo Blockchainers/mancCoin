@@ -13,6 +13,8 @@ public:
 
     std::vector<Transaction> transactions;
     std::string previousHash;
+
+    MSGPACK_DEFINE_ARRAY(index, proof, transactions, previousHash);
 };
 
 #endif
