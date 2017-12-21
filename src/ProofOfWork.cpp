@@ -15,19 +15,13 @@ bool ProofOfWork::verify(unsigned int previousProof, unsigned int proof) {
     std::string hashString = std::to_string(previousProof) + std::to_string(proof);
     
     // Generate initial hash
-    picosha2::hash256(hashString.begin(),
-                    hashString.end(),
-                    proofHash.begin(),
-                    proofHash.end());
+    picosha2::hash256(hashString, proofHash);
 
     // Generate second hash
-    picosha2::hash256(proofHash.begin(), 
-                      proofHash.end(), 
-                      proofHash.begin(),
-                      proofHash.end());
+    picosha2::hash256(proofHash, proofHash);
 
     // Check for prefix hash requirements
-    std::string hashHexString = picosha2::bytes_to_hex_string(proofHash.begin(), proofHash.end());
+    std::string hashHexString = picosha2::bytes_to_hex_string(proofHash);
     return validateConstraints(hashHexString);
 }
 
