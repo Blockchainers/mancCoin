@@ -5,10 +5,13 @@
 #include "Blockchain.h"
 #include "Transaction.h"
 #include "Block.h"
+#include "rpc/rpc.h"
 
 int Manccoin::start() {
     static const std::string MyAddress = "TheAddressOfThisNode";
     blockchain = new Blockchain();
+
+    network::start();
 
     // Mine lots of blocks
     for (;;) {
