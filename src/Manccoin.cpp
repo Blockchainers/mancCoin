@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 
 #include "Manccoin.h"
 #include "ProofOfWork.h"
@@ -20,11 +21,10 @@ int Manccoin::start() {
     // Mine lots of blocks
     for (;;) {
         Block lastBlock = blockchain.chain.back();
-        ProofOfWork *proof = new ProofOfWork();
+        std::unique_ptr<ProofOfWork> proof(new ProofOfWork());
 
         // Do mining
         int proofResult = proof->proof(lastBlock.proof);
-        delete proof;
 
         // Add coinbase
         Transaction coinbase = Transaction();

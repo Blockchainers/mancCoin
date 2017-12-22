@@ -7,7 +7,7 @@
 #include "Transaction.h"
 
 class ProofOfWork {
-public:
+public:    
     bool verify(unsigned int previousProof, unsigned int proof);
     int proof(unsigned int previousProof);
 
