@@ -25,7 +25,7 @@ int Manccoin::start() {
         // Do mining
         int proofResult = proof->proof(lastBlock.proof);
         delete proof;
-        
+
         // Add coinbase
         Transaction coinbase = Transaction();
         coinbase.sender = "0";
@@ -44,11 +44,6 @@ int Manccoin::start() {
                   << " with proof: " << proofResult
                   << " and hash: " << blockchain.blockHash(newBlock)
                   << std::endl;
-
-        // Test RPC
-        Blockchain b = client.call(rpcinterface::chain).as<Blockchain>();
-
-        std::cout << "Test RPC: " << b.chain.size() << std::endl;
     }
 
     return 0;

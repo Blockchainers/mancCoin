@@ -29,7 +29,7 @@ namespace network {
     void start() {
         std::cout << "Starting RPC server on port " << serverPort << std::endl;
         network::srv.async_run();
-        
+
         bindRPCFunctions();
 
         // Test connection
