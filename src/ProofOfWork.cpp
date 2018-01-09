@@ -1,5 +1,8 @@
-#include "ProofOfWork.h"
+#include <iostream>
+
 #include "vendor/picosha2.h"
+
+#include "ProofOfWork.h"
 #include "Transaction.h"
 
 /// Number of leading zeros to find

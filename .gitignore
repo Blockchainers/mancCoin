@@ -35,6 +35,8 @@
 *.out
 *.app
 
+*.dSYM
+
 ### Linux ###
 *~
 
@@ -99,3 +101,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/c++,macos,linux,windows
+
+manccoin
+build/
+.vscode/

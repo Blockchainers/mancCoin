@@ -1,0 +1,21 @@
+include(ExternalProject)
+
+ExternalProject_Add(
+  rpclib
+
+  GIT_REPOSITORY "git@github.com:rpclib/rpclib.git"
+  GIT_TAG "master"
+  SOURCE_DIR "${CMAKE_SOURCE_DIR}/libs/rpclib"
+
+  INSTALL_COMMAND ""
+  BINARY_DIR "${CMAKE_SOURCE_DIR}/build/rpclib"
+  CMAKE_ARGS "${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE:String=Debug"
+)
+
+set(rpclib_INCLUDE_DIRS
+  ${PROJECT_SOURCE_DIR}/libs/rpclib/include
+)
+
+set(rpclib_OUT
+  ${CMAKE_SOURCE_DIR}/build/rpclib/librpc.a
+)
